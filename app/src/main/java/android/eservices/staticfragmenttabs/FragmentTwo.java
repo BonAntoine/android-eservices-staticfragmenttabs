@@ -1,27 +1,24 @@
 package android.eservices.staticfragmenttabs;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.lang.reflect.Array;
-
 import androidx.fragment.app.Fragment;
 
 //TODO : fix this fragment so it works :)
 //Once it's done, then create a second fragment with the other layout
-public class FragmentOne extends Fragment {
+public class FragmentTwo extends Fragment {
 
-    public static final String TAB_NAME = "ADD TO COUNTER";
+    public static final String TAB_NAME = "SUBTRACT TO COUNTER";
 
     private View localView;
 
     private int counter;
 
-    public FragmentOne() {
+    public FragmentTwo() {
         // Comme dans la doc mais ne fonctionne pas
         // super(R.layout.fragment_one);
 
@@ -29,14 +26,14 @@ public class FragmentOne extends Fragment {
 
     }
 
-    public static FragmentOne newInstance() {
-        return new FragmentOne();
+    public static FragmentTwo newInstance() {
+        return new FragmentTwo();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        localView = inflater.inflate(R.layout.fragment_one, container, false);
+        localView = inflater.inflate(R.layout.fragment_two, container, false);
         return localView;
     }
 
@@ -52,12 +49,12 @@ public class FragmentOne extends Fragment {
         super.onStart();
 
         // add listener to the button
-        final Button btn = (Button) localView.findViewById(R.id.button_increment);
+        final Button btn = (Button) localView.findViewById(R.id.button_decrement);
         btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                ((MainActivity)getActivity()).incCpt();
+                ((MainActivity)getActivity()).decCpt();
             }
         });
     }
