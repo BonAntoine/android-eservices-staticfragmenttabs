@@ -13,11 +13,11 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements CounterInterface {
 
     private ViewPager2 viewPager;
     private TabLayout tabLayout;
-    private int currentCounter;
+    private int currentCounter = Integer.MAX_VALUE;
     private TextView counterTextView;
 
     @Override

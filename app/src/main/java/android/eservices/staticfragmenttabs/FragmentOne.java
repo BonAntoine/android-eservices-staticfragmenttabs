@@ -21,6 +21,8 @@ public class FragmentOne extends Fragment {
 
     private int counter;
 
+    private CounterInterface counterInterface;
+
     public FragmentOne() {
         // Comme dans la doc mais ne fonctionne pas
         // super(R.layout.fragment_one);
@@ -50,6 +52,7 @@ public class FragmentOne extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        counterInterface = ((MainActivity)getActivity());
 
         // add listener to the button
         final Button btn = (Button) localView.findViewById(R.id.button_increment);
@@ -57,7 +60,7 @@ public class FragmentOne extends Fragment {
 
             @Override
             public void onClick(View v) {
-                ((MainActivity)getActivity()).incCpt();
+                counterInterface.incCpt();
             }
         });
     }
